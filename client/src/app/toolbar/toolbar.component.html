@@ -2,8 +2,14 @@
   <div class="img-container">
     <img
       src="../../assets/logo.png"
-      class="shadow-lg shadow-white hover:scale-50"
+      class="hover:scale-105 transition-transform"
       alt="Logo"
     />
+  </div>
+  <div class="flex flex-row justify-center items-center">
+    <app-search-bar
+      class="center-search items-center justify-center"
+      (search)="performSearch($event)"
+    ></app-search-bar>
   </div>
 </mat-toolbar>

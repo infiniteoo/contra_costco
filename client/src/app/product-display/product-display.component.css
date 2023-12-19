@@ -33,11 +33,20 @@
 }
 
 .product-image img {
-    max-width: 100%;
+    width: 100%;
+    /* Set the width to 100% to scale the image */
     height: auto;
-    /* Allow the image to adjust its height */
+    /* Allow the image to adjust its height while maintaining aspect ratio */
     object-fit: cover;
+    /* Fill the container and crop the excess content */
     border-radius: 5px 5px 0 0;
+    /* Rounded corners if needed */
+    margin: 40px auto 0;
+    /* Adjust the top margin value as needed */
+    /* Center the image horizontally */
+    display: block;
+    /* Remove any default inline spacing */
+
 }
 
 .product-details {
@@ -50,6 +59,11 @@
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
+}
+
+.product-image img:hover {
+    transform: scale(1.1);
+    transition: 0.4s;
 }
 
 .product-description {

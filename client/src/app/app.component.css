@@ -1,0 +1,36 @@
+/* app.component.css */
+.toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    /* Adjust the padding as needed */
+}
+
+.sidebar-container {
+
+    margin-top: 50px;
+
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    background: #212121;
+    /* Adjust the gap between products and sidebar */
+
+    /* Adjust the padding as needed */
+}
+
+.app-product-display {
+    flex: 1;
+    /* Allow products to take remaining available space */
+    max-width: calc(100% - 240px);
+    /* Adjust the width of the products */
+}
+
+.app-sidebar {
+    width: 240px;
+    /* Adjust the width of the sidebar */
+}

@@ -2,8 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 175px;
-    width: 175px;
+    height: 110px;
+    width: 110px;
 
     border: 0;
     background-color: transparent;
@@ -11,4 +11,25 @@
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    padding: 0;
+    gap: 40px;
+
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.center-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

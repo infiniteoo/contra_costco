@@ -5,7 +5,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ProductDisplayComponent } from './product-display/product-display.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     ProductDisplayComponent,
     MatToolbarModule,
     HttpClientModule,
-    MatSidenavModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
