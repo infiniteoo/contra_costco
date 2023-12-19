@@ -24,7 +24,7 @@ class Program
     static readonly AmazonS3Client s3Client = new AmazonS3Client();
     static readonly DynamoDBContext context = new DynamoDBContext(dynamoDBClient);
 
-    static async Task Main(string[] args)
+    static async Task Maine(string[] args)
     {
         // InsertItem(); // Uncomment to run the item insertion method
         await GenerateImages();
