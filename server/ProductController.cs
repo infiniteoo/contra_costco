@@ -1,73 +1,93 @@
 using Microsoft.AspNetCore.Mvc;
-using ContraCostco;
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-[Route("api/products")]
-[ApiController]
-public class ProductsController : ControllerBase
+namespace ContraCostco.Controllers
 {
-    private readonly List<Product> _products = new List<Product>
+    [Route("api/products")]
+    [ApiController]
+    public class ProductsController : ControllerBase
     {
-        new() { ProductName = "Product 1", ProductPrice = "10.99",  },
-        new() { ProductName = "Product 2", ProductPrice = "15.49",  },
-        // Add more initial products as needed
-    };
+        private readonly IDynamoDBContext _context;
 
-    // GET: api/products
-    [HttpGet]
-    public IActionResult Get()
-    {
-        return Ok(_products);
-    }
-
-    // GET: api/products/1
-    [HttpGet("{id}")]
-    public IActionResult Get(string id)
-    {
-        var product = _products.Find(p => p.ProductName == id);
-        if (product == null)
+        public ProductsController(IDynamoDBContext context)
         {
-            return NotFound();
-        }
-        return Ok(product);
-    }
-
-    // POST: api/products
-    [HttpPost]
-    public IActionResult Post([FromBody] Product product)
-    {
-
-
-        _products.Add(product);
-        return CreatedAtAction(nameof(Get), new { id = product.ProductName }, product);
-    }
-
-    // PUT: api/products/1
-    [HttpPut("{id}")]
-    public IActionResult Put(string id, [FromBody] Product updatedProduct)
-    {
-        var product = _products.Find(p => p.ProductName == id);
-        if (product == null)
-        {
-            return NotFound();
+            _context = context;
         }
 
-        product.ProductName = updatedProduct.ProductName;
-        product.ProductPrice = updatedProduct.ProductPrice;
-
-        return NoContent();
-    }
-
-    // DELETE: api/products/1
-    [HttpDelete("{id}")]
-    public IActionResult Delete(string id)
-    {
-        var product = _products.Find(p => p.ProductName == id);
-        if (product == null)
+        /* // GET: api/products
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            return NotFound();
+            var products = await _context.ScanAsync<Product>(new List<ScanCondition>()).GetRemainingAsync();
+            return Ok(products);
+        } */
+        // GET: api/products
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                var products = await _context.ScanAsync<Product>(new List<ScanCondition>()).GetRemainingAsync();
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details here as needed
+                return StatusCode(500, $"Error accessing DynamoDB: {ex.Message}");
+            }
+        }
+        // GET: api/products/1
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            var product = await _context.LoadAsync<Product>(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
         }
 
-        _products.Remove(product);
-        return NoContent();
+        // POST: api/products
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Product product)
+        {
+            await _context.SaveAsync(product);
+            return CreatedAtAction(nameof(Get), new { id = product.ProductName }, product);
+        }
+
+        // PUT: api/products/1
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] Product updatedProduct)
+        {
+            var product = await _context.LoadAsync<Product>(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.ProductName = updatedProduct.ProductName;
+            product.ProductPrice = updatedProduct.ProductPrice;
+
+            await _context.SaveAsync(product);
+            return NoContent();
+        }
+
+        // DELETE: api/products/1
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var product = await _context.LoadAsync<Product>(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            await _context.DeleteAsync(product);
+            return NoContent();
+        }
     }
 }

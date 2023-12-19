@@ -29,3 +29,4 @@ C:\projects\contra\server\obj\Debug\net8.0\refint\contra.dll
 C:\projects\contra\server\obj\Debug\net8.0\contra.pdb
 C:\projects\contra\server\obj\Debug\net8.0\contra.genruntimeconfig.cache
 C:\projects\contra\server\obj\Debug\net8.0\ref\contra.dll
+C:\projects\contra\server\bin\Debug\net8.0\AWSSDK.Extensions.NETCore.Setup.dll

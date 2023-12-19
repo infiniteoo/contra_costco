@@ -1,21 +1,37 @@
-using ContraCostco;
+using Amazon.DynamoDBv2.DataModel;
+using System.Collections.Generic;
 
 namespace ContraCostco
 {
-
-
-
+    [DynamoDBTable("contra_costco")]
     public class Product
     {
-        public string? ProductName { get; set; }
-        public string? ProductDescription { get; set; }
+        [DynamoDBHashKey("product_name")] // Adjusted for DynamoDB's attribute name
+        public string ProductName { get; set; }
+
+        [DynamoDBProperty("product_description")]
+        public string ProductDescription { get; set; }
+
+        [DynamoDBProperty("product_image_url")]
         public string ProductImageURL { get; set; }
+
+        [DynamoDBProperty("product_price")]
         public string ProductPrice { get; set; }
-        public List<string> ProductCategories { get; set; } // Changed to List<string>
-        public List<string> ProductFeatures { get; set; } // Changed to List<string>
-        public List<string> ProductReviews { get; set; } // Changed to List<string>
-        public List<string> ProductUseCases { get; set; } // Changed to List<string>
-        public List<string> ProductTags { get; set; } // Changed to List<string>
+
+        [DynamoDBProperty("product_categories")]
+        public List<string> ProductCategories { get; set; }
+
+        [DynamoDBProperty("product_features")]
+        public List<string> ProductFeatures { get; set; }
+
+        [DynamoDBProperty("product_reviews")]
+        public List<string> ProductReviews { get; set; }
+
+        [DynamoDBProperty("product_use_cases")]
+        public List<string> ProductUseCases { get; set; }
+
+        [DynamoDBProperty("product_tags")]
+        public List<string> ProductTags { get; set; }
 
         public Product()
         {

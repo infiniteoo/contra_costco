@@ -1,0 +1,15 @@
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 175px;
+    width: 175px;
+    margin: 5px;
+    padding: 5px;
+    border: 0;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
