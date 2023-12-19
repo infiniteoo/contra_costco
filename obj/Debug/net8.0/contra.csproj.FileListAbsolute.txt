@@ -23,3 +23,9 @@ C:\projects\contra\obj\Debug\net8.0\refint\contra.dll
 C:\projects\contra\obj\Debug\net8.0\contra.pdb
 C:\projects\contra\obj\Debug\net8.0\contra.genruntimeconfig.cache
 C:\projects\contra\obj\Debug\net8.0\ref\contra.dll
+C:\projects\contra\bin\Debug\net8.0\client\angular.json
+C:\projects\contra\bin\Debug\net8.0\client\package-lock.json
+C:\projects\contra\bin\Debug\net8.0\client\package.json
+C:\projects\contra\bin\Debug\net8.0\client\tsconfig.app.json
+C:\projects\contra\bin\Debug\net8.0\client\tsconfig.json
+C:\projects\contra\bin\Debug\net8.0\client\tsconfig.spec.json
