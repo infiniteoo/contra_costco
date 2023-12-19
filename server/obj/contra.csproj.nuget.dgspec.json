@@ -49,6 +49,10 @@
             "AWSSDK.S3": {
               "target": "Package",
               "version": "[3.7.304.10, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [

@@ -30,12 +30,23 @@ namespace ContraCostco
                 return new DynamoDBContext(client);
             });
 
-            // Other service configurations can go here
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocalhost4200",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // ... Other configurations ...
+            app.UseCors("AllowLocalhost4200");
+
 
             app.UseRouting();
 
