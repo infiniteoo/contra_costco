@@ -1,9 +1,33 @@
 <div class="product-grid">
-  <!-- <mat-card *ngFor="let product of products">
-    <mat-card-header>
-      <mat-card-title>{{ product.name }}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image [src]="product.imageUrl" alt="Product image" />
-    <mat-card-content> </mat-card-content>
-  </mat-card> -->
+  <div class="custom-card" *ngFor="let product of products">
+    <mat-card class="product-card">
+      <div class="product-image">
+        <img
+          mat-card-image
+          [src]="product.productImageURL"
+          alt="Product image"
+        />
+      </div>
+      <div class="product-details">
+        <mat-card-header>
+          <mat-card-title class="product-title text-center">{{
+            product.productName
+          }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- <p class="product-description">{{ product.productDescription }}</p> -->
+          <p class="product-price">{{ product.productPrice }}</p>
+          <p class="product-tags">Tags: {{ product.productTags.join(", ") }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-icon-button
+            class="text-orange-500 hover:scale-125 transition"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
 </div>

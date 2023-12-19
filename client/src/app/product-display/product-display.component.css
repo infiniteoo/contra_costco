@@ -1,0 +1,78 @@
+/* Updated CSS for Product Cards */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.product-card {
+    width: 100%;
+    max-width: 300px;
+    /* Set a maximum width for each card */
+    height: 100%;
+    /* Set a fixed height for each card */
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    /* Allow the image to adjust its height */
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.product-details {
+    padding: 16px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.product-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+    display: none;
+    /* Hide the description */
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff5722;
+    margin-bottom: 10px;
+}
+
+.product-tags {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+.mat-icon-button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.mat-icon-button:hover {
+    background-color: #ff7043;
+}
