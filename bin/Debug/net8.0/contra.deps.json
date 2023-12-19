@@ -7,8 +7,42 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "contra/1.0.0": {
+        "dependencies": {
+          "AWSSDK.DynamoDBv2": "3.7.300.21",
+          "AWSSDK.S3": "3.7.304.10"
+        },
         "runtime": {
           "contra.dll": {}
+        }
+      },
+      "AWSSDK.Core/3.7.300.21": {
+        "runtime": {
+          "lib/net8.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.300.21"
+          }
+        }
+      },
+      "AWSSDK.DynamoDBv2/3.7.300.21": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.300.21"
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.DynamoDBv2.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.300.21"
+          }
+        }
+      },
+      "AWSSDK.S3/3.7.304.10": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.300.21"
+        },
+        "runtime": {
+          "lib/net8.0/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.304.10"
+          }
         }
       }
     }
@@ -18,6 +52,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AWSSDK.Core/3.7.300.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B8CVsCgErVzOnwFBVTV/LuKmRpDOR22coF1qSzEGn3TlItuq33d5BqiUh15FTovsmQQxseck0jImuENL8I/qXA==",
+      "path": "awssdk.core/3.7.300.21",
+      "hashPath": "awssdk.core.3.7.300.21.nupkg.sha512"
+    },
+    "AWSSDK.DynamoDBv2/3.7.300.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PYBOaQ127lXubyh7qpkU16ee+OtXVbrwsaNFJ9CKIOA7h7kzML+WXmTzPw0evwffSXU/CPYCUd1dqNzm15Ozpw==",
+      "path": "awssdk.dynamodbv2/3.7.300.21",
+      "hashPath": "awssdk.dynamodbv2.3.7.300.21.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.304.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59go29G4/r/rDHm/XNBPYb0mAH4K3DwN6Ay/f3u9NIetlhV9jIx70LiNwZVUzIq9rfia4ua6MffxKHesP9MfhA==",
+      "path": "awssdk.s3/3.7.304.10",
+      "hashPath": "awssdk.s3.3.7.304.10.nupkg.sha512"
     }
   }
 }

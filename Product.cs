@@ -1,3 +1,4 @@
+using ContraCostco;
 
 namespace ContraCostco
 {
@@ -6,20 +7,15 @@ namespace ContraCostco
 
     public class Product
     {
-        // Define properties according to your DynamoDB table's schema
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-
+        public string? ProductName { get; set; }
+        public string? ProductDescription { get; set; }
         public string ProductImageURL { get; set; }
-
         public string ProductPrice { get; set; }
-
-        public List<string> ProductCategories { get; set; }
-        public List<string> ProductFeatures { get; set; }
-        public List<string> ProductReviews { get; set; }
-        public List<string> ProductUseCases { get; set; }
-        public List<string> ProductTags { get; set; }
-
+        public List<string> ProductCategories { get; set; } // Changed to List<string>
+        public List<string> ProductFeatures { get; set; } // Changed to List<string>
+        public List<string> ProductReviews { get; set; } // Changed to List<string>
+        public List<string> ProductUseCases { get; set; } // Changed to List<string>
+        public List<string> ProductTags { get; set; } // Changed to List<string>
 
         public Product()
         {
@@ -32,15 +28,6 @@ namespace ContraCostco
             ProductReviews = new List<string>();
             ProductUseCases = new List<string>();
             ProductTags = new List<string>();
-
-
-
-
         }
-
-
-
     }
 }
-
-

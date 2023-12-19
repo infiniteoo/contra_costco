@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("contra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1fb1701b9f045e77a2ba2950b25b396f78cf2bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("contra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("contra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,5 @@
+
+
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
@@ -9,21 +11,14 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
-
+using Amazon.DynamoDBv2.Model;
 using ContraCostco;
-
-
-
-
-
-
-
 
 
 class Program
 {
     static readonly HttpClient httpClient = new HttpClient();
-    static readonly string openaiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+    static readonly string openaiApiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY") ?? "default_value";
     static readonly string bucketName = "contra-costco";
     static readonly AmazonDynamoDBClient dynamoDBClient = new AmazonDynamoDBClient();
     static readonly AmazonS3Client s3Client = new AmazonS3Client();
@@ -39,7 +34,8 @@ class Program
     static async Task GenerateImages()
     {
         var scanConditions = new List<ScanCondition>();
-        var search = context.ScanAsync<Product>(scanConditions);
+        var search = context.ScanAsync<ContraCostco.Product>(scanConditions);
+
 
         while (!search.IsDone)
         {
@@ -49,6 +45,7 @@ class Program
                 try
                 {
                     string prompt = $"Please create an image of a product for a comical parody store called Contra Costco. Based on the 80's arcade game Contra, this e-commerce grocery store exclusively sells over-the-top, comical items that an 80's jungle freedom fighter would need. Please make the image colorful, friendly, fun, bright, silly, comical, and have a transparent background.\nProduct Name: {item.ProductName}\nProduct Description: {item.ProductDescription}\nProduct Features: {string.Join(", ", item.ProductFeatures)}\nProduct Reviews: {string.Join(", ", item.ProductReviews)}\nProduct Use Cases: {string.Join(", ", item.ProductUseCases)}\nProduct Tags: {string.Join(", ", item.ProductTags)}\nProduct Categories: {string.Join(", ", item.ProductCategories)}";
+
 
                     Console.WriteLine($"Prompt: {prompt}");
 
@@ -62,9 +59,15 @@ class Program
                         var imageKey = $"contra-costco/{item.ProductName}.png";
                         await UploadImageToS3(imageUrl, imageKey);
 
-                        // Update DynamoDB item with image URL
-                        var s3ImageUrl = $"https://{bucketName}.s3.amazonaws.com/{imageKey}";
-                        await UpdateItemInDynamoDB(item.ProductName, s3ImageUrl);
+                        if (!string.IsNullOrEmpty(item.ProductName))
+                        {
+                            var s3ImageUrl = $"https://{bucketName}.s3.amazonaws.com/{imageKey}";
+                            await UpdateItemInDynamoDB(item.ProductName, s3ImageUrl);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Warning: ProductName is null or empty.");
+                        }
                     }
                 }
                 catch (Exception e)
@@ -74,7 +77,7 @@ class Program
             }
         }
 
-        static async Task<OpenAIResponse> CallOpenAIAPI(string prompt)
+        static async Task<OpenAIResponse?> CallOpenAIAPI(string prompt)
         {
             var requestContent = new { model = "dall-e-3", prompt = prompt, size = "1024x1024", quality = "standard", n = 1 };
             var content = new StringContent(JsonSerializer.Serialize(requestContent), System.Text.Encoding.UTF8, "application/json");
@@ -118,23 +121,17 @@ class Program
         }
     }
 
-    public class Product
-    {
-        // Define properties according to your DynamoDB table's schema
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-        // ... Other properties
-    }
+
 
     public class OpenAIResponse
     {
         // Define properties according to the response structure of OpenAI API
-        public List<OpenAIData> Data { get; set; }
+        public List<OpenAIData> Data { get; set; } = new List<OpenAIData>();
     }
 
     public class OpenAIData
     {
-        public string Url { get; set; }
+        public string Url { get; set; } = new string("");
         // ... Other properties
     }
 }
