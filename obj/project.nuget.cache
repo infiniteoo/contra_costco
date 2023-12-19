@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Tw4mNdJLMR+Md2JvGPzeEhFi5WuDcPpWl/ueXsARcu7L/fY85JsvEixjjb5QosZQ0J97mHayqZcU6tO2ZmCayA==",
+  "dgSpecHash": "pdX2+0zXmqw4gbHMgy5y79ykur1x+7sJIpdT9m0X2UHa2FHQoqoTMdLklB6ogJCC0GroFAUGS/pqw8WKIfTJEw==",
   "success": true,
   "projectFilePath": "C:\\projects\\contra\\contra.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\macph\\.nuget\\packages\\awssdk.core\\3.7.300.21\\awssdk.core.3.7.300.21.nupkg.sha512",
+    "C:\\Users\\macph\\.nuget\\packages\\awssdk.dynamodbv2\\3.7.300.21\\awssdk.dynamodbv2.3.7.300.21.nupkg.sha512",
+    "C:\\Users\\macph\\.nuget\\packages\\awssdk.s3\\3.7.304.10\\awssdk.s3.3.7.304.10.nupkg.sha512"
+  ],
   "logs": []
 }

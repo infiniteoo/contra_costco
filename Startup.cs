@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace YourNamespace
+namespace ContraCostco
 {
     public class Startup
     {

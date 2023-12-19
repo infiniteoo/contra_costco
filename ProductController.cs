@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ContraCostco;
 
 [Route("api/products")]
 [ApiController]
@@ -6,8 +7,8 @@ public class ProductsController : ControllerBase
 {
     private readonly List<Product> _products = new List<Product>
     {
-        new() { Id = 1, Name = "Product 1", Price = 10.99m, CreatedAt = DateTime.Now },
-        new() { Id = 2, Name = "Product 2", Price = 15.49m, CreatedAt = DateTime.Now },
+        new() { ProductName = "Product 1", ProductPrice = "10.99",  },
+        new() { ProductName = "Product 2", ProductPrice = "15.49",  },
         // Add more initial products as needed
     };
 
@@ -20,9 +21,9 @@ public class ProductsController : ControllerBase
 
     // GET: api/products/1
     [HttpGet("{id}")]
-    public IActionResult Get(int id)
+    public IActionResult Get(string id)
     {
-        var product = _products.Find(p => p.Id == id);
+        var product = _products.Find(p => p.ProductName == id);
         if (product == null)
         {
             return NotFound();
@@ -34,33 +35,33 @@ public class ProductsController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Product product)
     {
-        product.Id = _products.Count + 1;
-        product.CreatedAt = DateTime.Now;
+
+
         _products.Add(product);
-        return CreatedAtAction(nameof(Get), new { id = product.Id }, product);
+        return CreatedAtAction(nameof(Get), new { id = product.ProductName }, product);
     }
 
     // PUT: api/products/1
     [HttpPut("{id}")]
-    public IActionResult Put(int id, [FromBody] Product updatedProduct)
+    public IActionResult Put(string id, [FromBody] Product updatedProduct)
     {
-        var product = _products.Find(p => p.Id == id);
+        var product = _products.Find(p => p.ProductName == id);
         if (product == null)
         {
             return NotFound();
         }
 
-        product.Name = updatedProduct.Name;
-        product.Price = updatedProduct.Price;
+        product.ProductName = updatedProduct.ProductName;
+        product.ProductPrice = updatedProduct.ProductPrice;
 
         return NoContent();
     }
 
     // DELETE: api/products/1
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    public IActionResult Delete(string id)
     {
-        var product = _products.Find(p => p.Id == id);
+        var product = _products.Find(p => p.ProductName == id);
         if (product == null)
         {
             return NotFound();

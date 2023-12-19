@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using ContraCostco;
 
-namespace YourNamespace
+
+
+
+namespace ContraCostco
 {
     public class Program
     {
