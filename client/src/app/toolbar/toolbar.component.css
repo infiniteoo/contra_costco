@@ -1,22 +1,40 @@
 .img-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    height: 110px;
-    width: 110px;
-
+    height: 60px;
+    width: 100px;
+    margin-left: 20px;
     border: 0;
     background-color: transparent;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+}
+
+.img-container img {
+    height: auto;
+
+    width: 45px;
 }
 
 .mat-toolbar-row,
 .mat-toolbar-single-row {
     padding: 0;
     gap: 40px;
+
+}
+
+.mat-toolbar {
+    border-bottom: 3px solid white;
+    display: flex;
+
 
 }
 
@@ -32,4 +50,33 @@
     align-items: center;
     justify-content: center;
 
+}
+
+/* Apply the pulse animation to the first image */
+.img-container img:first-child {
+    animation: pulse-animation 5s alternate infinite;
+    /* Alternate animation on a 2-second loop */
+}
+
+/* Apply the pulse animation to the second image */
+.img-container img:nth-child(2) {
+    animation: pulse-animation 5s alternate infinite;
+    /* Alternate animation on a 2-second loop */
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        /* Start with normal size */
+    }
+
+    50% {
+        transform: scale(1.05);
+        /* Scale up to 110% size */
+    }
+
+    100% {
+        transform: scale(1);
+        /* Back to normal size */
+    }
 }
