@@ -31,6 +31,7 @@ export class AppComponent {
   title = 'client';
   @Input() isCartOpen: boolean = false;
   @Output() products: any;
+  @Output() itemsInCart = [];
 
   isButtonActive: boolean = false;
 

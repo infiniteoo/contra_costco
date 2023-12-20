@@ -1,11 +1,14 @@
 <div class="chat-container">
   <div class="close-button" (click)="toggleCart()">&#10006;</div>
   <div class="sidebar-header">Your Shopping Cart</div>
-  <div class="message-container"></div>
-
-  <div class="input-container">
-    <input placeholder="Type your message..." />
-
-    <button style="font-size: 24px">Send</button>
+  <div class="item-container">
+    <div
+      class="flex flex-col justify-center items-center text-center h-fit-content"
+      *ngIf="itemsInCart.length == 0"
+    >
+      <div class="">Your cart is empty</div>
+    </div>
   </div>
+
+  <button style="font-size: 24px">Check Out</button>
 </div>

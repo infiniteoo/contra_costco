@@ -6,14 +6,19 @@
     justify-items: center;
     padding: 20px;
     background-color: #f2f2f2;
+    background-image: url("../../assets/yellow-bg.svg");
 }
 
 .product-card {
     width: 100%;
     max-width: 300px;
-    /* Set a maximum width for each card */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
     height: 100%;
-    /* Set a fixed height for each card */
+
+
+
+
     background-color: #fff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -26,10 +31,14 @@
 }
 
 .custom-card:hover {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px 0px 0px 3px rgba(255, 112, 67, 0.5);
-    /* Adjust the alpha value (0.5) to control opacity */
-    border-radius: 5px;
+
     transition: 0.2s;
+}
+
+.product-card:hover {
+    transform: perspective(1000px) rotateY(5deg);
+    transition: 0.3s;
+
 }
 
 .product-image img {
