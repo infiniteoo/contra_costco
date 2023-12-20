@@ -19,7 +19,11 @@
           <p class="product-tags">Tags: {{ product.productTags.join(", ") }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-icon-button class="text-orange-500">
+          <button
+            mat-icon-button
+            class="text-orange-500"
+            (click)="addItemToCart(product)"
+          >
             <mat-icon class="cart-icon hover:scale-125 transition"
               >add_shopping_cart</mat-icon
             >

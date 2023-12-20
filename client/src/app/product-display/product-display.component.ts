@@ -12,8 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ProductDisplayComponent {
   @Input() products: any;
+  @Input() itemsInCart: any;
 
-  constructor() {}
+  constructor() {
+    this.itemsInCart = [];
+  }
 
   ngOnInit(): void {
     console.log('ngOnInit called'); // Check if ngOnInit is called
@@ -22,5 +25,11 @@ export class ProductDisplayComponent {
     if (this.products) {
       console.log('products inside product display: ', this.products);
     }
+  }
+
+  addItemToCart(product: any) {
+    console.log('product: ', product);
+    this.itemsInCart?.push(product);
+    console.log('itemsInCart: ', this.itemsInCart);
   }
 }

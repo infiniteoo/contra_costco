@@ -46,7 +46,9 @@ export class AppComponent {
     this.isButtonActive = false;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.itemsInCart = [];
+  }
 
   toggleButton() {
     this.isButtonActive = !this.isButtonActive;
