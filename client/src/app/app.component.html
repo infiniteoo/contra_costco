@@ -3,4 +3,24 @@
 <div class="content-container">
   <app-sidebar></app-sidebar>
   <app-product-display [products]="products"></app-product-display>
+  <div class="" *ngIf="isCartOpen">
+    <app-cart-sidebar
+      [isCartOpen]="isCartOpen"
+      (closeCartEvent)="closeCart()"
+    ></app-cart-sidebar>
+  </div>
+  <div class="cart-sidebar" [ngClass]="{ 'sidebar-expanded': isCartOpen }">
+    <div
+      class="popup-button-container"
+      [ngClass]="{ active: isButtonActive }"
+    ></div>
+  </div>
 </div>
+
+<button class="cart-icon" (click)="toggleCart()" *ngIf="!isCartOpen">
+  <mat-icon>shopping_cart</mat-icon>
+</button>
+
+<!-- <app-cart-sidebar
+  [ngClass]="{ 'sidebar-expanded': isCartOpen }"
+></app-cart-sidebar> -->

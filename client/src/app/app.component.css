@@ -18,9 +18,39 @@
     flex-direction: row;
     gap: 16px;
     background: #212121;
-    /* Adjust the gap between products and sidebar */
 
-    /* Adjust the padding as needed */
+}
+
+.cart-icon {
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+    background-color: white;
+    color: #212121;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 3px solid #212121;
+    cursor: pointer;
+    z-index: 500;
+
+
+}
+
+.sidebar-expanded {
+    right: 0;
+}
+
+
+.cart-icon mat-icon {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+
 }
 
 .app-product-display {
@@ -33,4 +63,18 @@
 .app-sidebar {
     width: 240px;
     /* Adjust the width of the sidebar */
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -25%;
+    width: 25%;
+    height: 100%;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    border-radius: 10px 0 0 10px;
 }
