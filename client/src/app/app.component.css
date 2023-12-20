@@ -18,6 +18,7 @@
     flex-direction: row;
     gap: 16px;
     background: #212121;
+    height: 100%;
 
 }
 
@@ -34,7 +35,7 @@
     padding: 20px;
     border: 3px solid #212121;
     cursor: pointer;
-    z-index: 500;
+    z-index: 1000;
 
 
 }
@@ -68,11 +69,12 @@
 .cart-sidebar {
     position: fixed;
     top: 0;
-    right: -25%;
+    right: 0;
     width: 25%;
-    height: 100%;
-    background-color: #f0f0f0;
+    height: 100vh;
+    max-height: 100vh !important;
     overflow-y: auto;
+    background-color: #f0f0f0;
     box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease-in-out;
     z-index: 999;
