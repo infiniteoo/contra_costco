@@ -1,0 +1,9 @@
+<div class="cart-item">
+  <!-- Display cart item details using the passed 'item' input property -->
+  <div class="cart-item-details">
+    <p>{{ item.productName }}</p>
+    <p>Price: ${{ item.productPrice }}</p>
+  </div>
+  <!-- Button to remove the item -->
+  <button (click)="removeItem()">Remove</button>
+</div>
