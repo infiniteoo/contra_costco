@@ -10,13 +10,18 @@
       </div>
       <div class="product-details">
         <mat-card-header>
-          <mat-card-title class="product-title text-center">{{
-            product.productName
-          }}</mat-card-title>
+          <mat-card-title class="product-title text-center">
+            {{ product.productName }}
+          </mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <p class="product-price">{{ product.productPrice }}</p>
-          <p class="product-tags">Tags: {{ product.productTags.join(", ") }}</p>
+          <p class="product-tags">
+            Tags:
+            <span *ngFor="let tag of product.productTags" class="tag-pill">
+              {{ tag }}
+            </span>
+          </p>
         </mat-card-content>
         <mat-card-actions>
           <button

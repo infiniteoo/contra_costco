@@ -13,18 +13,13 @@
     width: 100%;
     max-width: 300px;
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
+    display: flex;
+    flex-direction: column;
     height: 100%;
-
-
-
-
     background-color: #fff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
     transition: box-shadow 0.2s;
     border: 3px solid transparent;
 
@@ -59,15 +54,23 @@
 }
 
 .product-details {
-    padding: 16px;
-    text-align: center;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute space evenly between price and tags */
+    align-items: center;
+
+
 }
 
 .product-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #333;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .product-image img:hover {
@@ -88,12 +91,15 @@
     font-weight: bold;
     color: #ff5722;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .product-tags {
-    font-size: 12px;
-    color: #777777;
-    margin-bottom: 10px;
+
+
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .mat-icon-button {
@@ -118,4 +124,15 @@
     right: 10px;
 
 
+}
+
+.tag-pill {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 16px;
+    margin-right: 4px;
+    margin-top: 2rem;
+    font-size: 10px;
 }
