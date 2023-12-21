@@ -4,7 +4,7 @@
   <div class="item-container">
     <div
       class="flex flex-col justify-center items-center text-center h-fit-content"
-      *ngIf="itemsInCart.length == 0"
+      *ngIf="getItemsInCart().length == 0"
     >
       <div class="">Your cart is empty</div>
     </div>

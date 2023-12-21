@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-display',
@@ -10,13 +11,10 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './product-display.component.html',
   styleUrl: './product-display.component.css',
 })
-export class ProductDisplayComponent {
+export class ProductDisplayComponent implements OnInit {
   @Input() products: any;
-  @Input() itemsInCart: any;
 
-  constructor() {
-    this.itemsInCart = [];
-  }
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     console.log('ngOnInit called'); // Check if ngOnInit is called
@@ -28,8 +26,6 @@ export class ProductDisplayComponent {
   }
 
   addItemToCart(product: any) {
-    console.log('product: ', product);
-    this.itemsInCart?.push(product);
-    console.log('itemsInCart: ', this.itemsInCart);
+    this.cartService.addItemToCart(product);
   }
 }

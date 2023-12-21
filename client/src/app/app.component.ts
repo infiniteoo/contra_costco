@@ -31,7 +31,6 @@ export class AppComponent {
   title = 'client';
   @Input() isCartOpen: boolean = false;
   @Output() products: any;
-  @Output() itemsInCart = [];
 
   isButtonActive: boolean = false;
 
@@ -46,9 +45,7 @@ export class AppComponent {
     this.isButtonActive = false;
   }
 
-  constructor(private http: HttpClient) {
-    this.itemsInCart = [];
-  }
+  constructor(private http: HttpClient) {}
 
   toggleButton() {
     this.isButtonActive = !this.isButtonActive;
