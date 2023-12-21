@@ -29,6 +29,26 @@ export class CartSidebarComponent {
     this.closeCartEvent.emit(); // Emit the event
   }
 
+  getItemsInCartWithQuantity() {
+    const cartItems = this.cartService.getItemsInCart();
+    const itemsWithQuantity = [];
+
+    // Create a Set to keep track of processed item IDs to avoid duplicate calculations
+    const processedItemIds = new Set();
+
+    for (const item of cartItems) {
+      if (!processedItemIds.has(item.productName)) {
+        const totalQuantity = cartItems.filter(
+          (cartItem) => cartItem.productName === item.productName
+        ).length;
+        itemsWithQuantity.push({ ...item, totalQuantity });
+        processedItemIds.add(item.productName);
+      }
+    }
+
+    return itemsWithQuantity;
+  }
+
   removeItem(itemToRemove: any) {
     // Implement the logic to remove 'itemToRemove' from the cart
     // You can use 'itemToRemove' to identify the item to remove

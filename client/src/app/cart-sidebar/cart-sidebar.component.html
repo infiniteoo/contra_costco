@@ -6,19 +6,27 @@
       class="flex flex-col justify-center items-center text-center h-fit-content"
       *ngIf="getItemsInCart().length == 0"
     >
-      <div class="">Your cart is empty</div>
+      <div>Your cart is empty</div>
     </div>
-    <div
-      class="flex flex-col justify-center items-center text-center h-fit-content"
-      *ngIf="getItemsInCart().length > 0"
-    >
-      <app-cart-item
-        *ngFor="let item of getItemsInCart()"
-        [item]="item"
-        (removeItemEvent)="removeItem($event)"
-      ></app-cart-item>
+    <div *ngIf="getItemsInCart().length > 0">
+      <!-- Display header above items when there are items in the cart -->
+      <div class="cart-item-header">
+        <div class="cart-item-header-column">Name</div>
+        <div class="cart-item-header-column">Qty</div>
+        <div class="cart-item-header-column">Price</div>
+      </div>
+      <div
+        class="flex flex-col justify-center items-center text-center h-fit-content"
+        *ngFor="let itemWithQuantity of getItemsInCartWithQuantity()"
+      >
+        <!-- Pass total quantity to app-cart-item -->
+        <app-cart-item
+          [item]="itemWithQuantity"
+          [totalQuantity]="itemWithQuantity.totalQuantity"
+          (removeItemEvent)="removeItem($event)"
+        ></app-cart-item>
+      </div>
     </div>
-
-    <button style="font-size: 24px">Check Out</button>
   </div>
+  <button style="font-size: 24px">Check Out</button>
 </div>

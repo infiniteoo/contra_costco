@@ -9,8 +9,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CartItemComponent {
   @Input() item: any;
   @Output() removeItemEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Input() totalQuantity: number; // Add total quantity input
 
-  constructor() {}
+  constructor() {
+    this.totalQuantity = 0; // Initialize total quantity to 0
+  }
 
   removeItem() {
     // Emit an event to notify the parent component to remove this item from the cart
