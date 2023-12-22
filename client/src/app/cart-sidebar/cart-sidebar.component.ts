@@ -50,7 +50,6 @@ export class CartSidebarComponent {
   }
 
   removeItem(itemToRemove: any) {
-    // Implement the logic to remove 'itemToRemove' from the cart
-    // You can use 'itemToRemove' to identify the item to remove
+    this.cartService.removeItemFromCart(itemToRemove);
   }
 }

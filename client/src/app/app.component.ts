@@ -57,6 +57,14 @@ export class AppComponent {
       console.log(data);
       this.products = data;
     });
+
+    // Check local storage for cart
+    const cartData = localStorage.getItem('cart');
+
+    if (cartData !== null) {
+      this.cartService.itemsInCart = JSON.parse(cartData);
+      this.cartService.totalItemsInCart = this.cartService.itemsInCart.length;
+    }
   }
 
   totalItemsInCart() {

@@ -1,9 +1,11 @@
 .img-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    /* Aligns items to the center, reducing space around them */
     align-items: center;
     height: 60px;
     width: 100px;
+    /* You might want to adjust this if it's too narrow */
     margin-left: 20px;
     border: 0;
     background-color: transparent;
@@ -18,11 +20,41 @@
 
 }
 
+/* Add a negative margin to bring the images closer */
 .img-container img {
+    margin-right: -7px;
+
+    transition: transform 0.3s ease-in-out;
     height: auto;
 
     width: 45px;
 }
+
+
+.img-container img:last-child {
+    margin-left: -0px;
+
+}
+
+
+.site-title {
+    font-size: 4rem !important;
+    font-weight: bold;
+    text-align: center;
+    color: transparent;
+
+    border-radius: 5px;
+    line-height: 0.7;
+
+
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+
+}
+
+
 
 .mat-toolbar-row,
 .mat-toolbar-single-row {
@@ -34,8 +66,7 @@
 .mat-toolbar {
     border-bottom: 3px solid white;
     display: flex;
-
-
+    background: linear-gradient(to right, #00000000, #05041397, #8E5242D3, #AB5A49F6, #905132FC, #4B2423A6, #793A27CC, #A8410FCB, #02000107, #02020204)
 }
 
 .search-bar {
