@@ -11,7 +11,8 @@
     <div *ngIf="getItemsInCart().length > 0">
       <!-- Display header above items when there are items in the cart -->
       <div class="cart-item-header">
-        <div class="cart-item-header-column">Name</div>
+        <div class="cart-item-header-column"></div>
+        <div class="cart-item-header-column">Item</div>
         <div class="cart-item-header-column">Qty</div>
         <div class="cart-item-header-column">Price</div>
       </div>
@@ -24,6 +25,7 @@
           [item]="itemWithQuantity"
           [totalQuantity]="itemWithQuantity.totalQuantity"
           (removeItemEvent)="removeItem($event)"
+          class="cart-item"
         ></app-cart-item>
       </div>
     </div>

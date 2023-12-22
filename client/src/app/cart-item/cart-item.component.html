@@ -1,8 +1,18 @@
 <div class="cart-item">
   <!-- Display item details and total quantity -->
+
+  <div class="cart-item-column">
+    <img
+      src="{{ item.productImageURL }}"
+      alt="Product Image"
+      class="cart-item-image"
+    />
+  </div>
   <div class="cart-item-column">{{ item.productName }}</div>
   <div class="cart-item-column">{{ totalQuantity }}</div>
   <div class="cart-item-column">{{ item.productPrice }}</div>
-  <!-- Button to remove the item -->
-  <button (click)="removeItem()">Remove</button>
+
+  <mat-icon (click)="removeItem()" style="color: red; cursor: pointer"
+    >close</mat-icon
+  >
 </div>

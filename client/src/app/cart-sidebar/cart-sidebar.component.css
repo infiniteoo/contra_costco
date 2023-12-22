@@ -175,14 +175,14 @@ button {
     background-color: #f2f2f2;
     padding: 8px 16px;
     /* Adjust padding as needed */
-    font-weight: bold;
+    /*  font-weight: bold; */
     border-top: 1px solid #ccc;
 }
 
 /* Style for each column in the header */
 .cart-item-header-column {
     flex: 1;
-    text-align: center;
+    text-align: left;
     padding: 8px;
 }
 
@@ -194,6 +194,14 @@ button {
     padding: 8px 16px;
     /* Adjust padding as needed */
     border-bottom: 1px solid #ccc;
+}
+
+.cart-item:hover {
+    background-color: #f2f2f2;
+    transform: scale(1.05);
+    transition: 0.5s;
+
+
 }
 
 /* Style for each column in the cart items */
