@@ -1,10 +1,3 @@
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&family=Montserrat:wght@900&family=Pixelify+Sans:wght@500&family=Rubik+Doodle+Shadow&family=Space+Grotesk:wght@300&display=swap"
-  rel="stylesheet"
-/>
-
 <mat-toolbar class="mat-toolbar">
   <div class="img-container">
     <img
@@ -20,10 +13,16 @@
   </div>
   <div class="site-title">CONTRA COSTCO</div>
 
-  <div class="flex flex-row justify-center items-center">
+  <div class="flex flex-grow justify-center items-center">
+    <!-- Added flex-grow -->
     <app-search-bar
       class="center-search items-center justify-center"
       (search)="performSearch($event)"
     ></app-search-bar>
+  </div>
+  <div class="flex justify-end flex-row">
+    <div class="account-button w-1/2 mr-3">
+      <mat-icon>account_circle</mat-icon>
+    </div>
   </div>
 </mat-toolbar>

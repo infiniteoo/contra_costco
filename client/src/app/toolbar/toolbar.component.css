@@ -95,6 +95,32 @@
     /* Alternate animation on a 2-second loop */
 }
 
+.account-button {
+
+
+    background-color: white;
+    color: #212121;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+
+    border: 3px solid #212121;
+    cursor: pointer;
+    z-index: 1000;
+
+
+}
+
+.account-button:hover {
+    background-color: #212121;
+    color: white;
+    border: 3px solid white;
+    transition: all 0.3s ease-in-out;
+}
+
 @keyframes pulse-animation {
     0% {
         transform: scale(1);

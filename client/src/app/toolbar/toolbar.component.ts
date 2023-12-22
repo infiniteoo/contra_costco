@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [MatToolbarModule, SearchBarComponent],
+  imports: [MatToolbarModule, SearchBarComponent, MatIconModule],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css',
 })
