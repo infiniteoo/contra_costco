@@ -79,8 +79,19 @@
     transition: right 0.3s ease-in-out;
     z-index: 999;
     border-radius: 10px 0 0 10px;
+}
 
-
-
-
+.cart-notification {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff5722;
+    /* Choose your desired background color */
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    /* Adjust padding as needed */
+    font-size: 14px;
+    /* Adjust font size as needed */
+    font-weight: bold;
 }

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CartSidebarComponent } from './cart-sidebar/cart-sidebar.component';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -45,7 +46,7 @@ export class AppComponent {
     this.isButtonActive = false;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cartService: CartService) {}
 
   toggleButton() {
     this.isButtonActive = !this.isButtonActive;
@@ -56,5 +57,9 @@ export class AppComponent {
       console.log(data);
       this.products = data;
     });
+  }
+
+  totalItemsInCart() {
+    return this.cartService.totalItemsInCart;
   }
 }

@@ -25,4 +25,7 @@
 
 <button class="cart-icon" (click)="toggleCart()" *ngIf="!isCartOpen">
   <mat-icon>shopping_cart</mat-icon>
+  <span class="cart-notification" *ngIf="totalItemsInCart() > 0">{{
+    totalItemsInCart()
+  }}</span>
 </button>
