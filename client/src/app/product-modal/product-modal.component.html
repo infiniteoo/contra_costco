@@ -15,19 +15,22 @@
       </svg>
     </button>
     <div class="modal-inner">
-      <img
-        src="{{ product.productImageURL }}"
-        alt="Product Image"
-        class="img-container"
-      />
-      <div class="product-details">
-        <h2 class="product-title">{{ product.productName }}</h2>
-        <p class="product-description">{{ product.productDescription }}</p>
-        <p class="product-price">{{ product.productPrice }}</p>
-        <button class="add-to-cart-button" onclick="addToCart(product)">
-          Add to Cart
-        </button>
+      <div class="flex flex-row">
+        <img
+          src="{{ product.productImageURL }}"
+          alt="Product Image"
+          class="img-container"
+        />
+        <div class="product-details">
+          <h2 class="product-title">{{ product.productName }}</h2>
+          <p class="product-description">{{ product.productDescription }}</p>
+          <p class="product-price">{{ product.productPrice }}</p>
+          <button class="add-to-cart-button" onclick="addToCart(product)">
+            Add to Cart
+          </button>
+        </div>
       </div>
+
       <div class="additional-info">
         <p>Reviews: {{ product.productReviews }}</p>
         <p>Tags: {{ product.productTags }}</p>

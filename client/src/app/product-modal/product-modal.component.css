@@ -54,25 +54,32 @@
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    max-width: 80%;
     /* Add some spacing to the right of the image */
 }
 
 .product-title {
-    font-size: 24px;
+    font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
+    border-bottom: 1px solid #333;
 }
 
 .product-description {
-    font-size: 16px;
+    font-size: 20px;
+    max-width: 600px;
+    /* Set your desired maximum width */
+    word-wrap: break-word;
+    /* Allow long words to wrap */
     margin-bottom: 10px;
 }
 
 .product-price {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
     color: #2ecc71;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .add-to-cart-button {
