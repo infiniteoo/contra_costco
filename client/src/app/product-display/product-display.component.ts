@@ -1,18 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CartService } from '../cart.service';
+import { ProductModalComponent } from '../product-modal/product-modal.component';
 
 @Component({
   selector: 'app-product-display',
   standalone: true,
-  imports: [MatCardModule, CommonModule, MatIconModule],
+  imports: [MatCardModule, CommonModule, MatIconModule, ProductModalComponent],
   templateUrl: './product-display.component.html',
-  styleUrl: './product-display.component.css',
+  styleUrls: ['./product-display.component.css'],
 })
 export class ProductDisplayComponent implements OnInit {
   @Input() products: any;
+  @Output() isModalOpen: boolean = false;
+  selectedProduct: any; // Track the selected product
 
   constructor(private cartService: CartService) {}
 
@@ -27,5 +30,11 @@ export class ProductDisplayComponent implements OnInit {
 
   addItemToCart(product: any) {
     this.cartService.addItemToCart(product);
+  }
+
+  openModal(product: any) {
+    this.selectedProduct = product; // Set the selected product
+    console.log('openModal() called, value: ', this.isModalOpen);
+    this.isModalOpen = true;
   }
 }

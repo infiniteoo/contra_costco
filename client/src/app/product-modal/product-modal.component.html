@@ -1,0 +1,39 @@
+<div class="modal-container">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="currentColor"
+        class="bi bi-x"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.293 4.293a1 1 0 0 1 1.414 0L8 6.586l2.293-2.293a1 1 0 1 1 1.414 1.414L9.414 8l2.293 2.293a1 1 0 0 1-1.414 1.414L8 9.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L6.586 8 4.293 5.707a1 1 0 0 1 0-1.414z"
+        />
+      </svg>
+    </button>
+    <div class="modal-inner">
+      <img
+        src="{{ product.productImageURL }}"
+        alt="Product Image"
+        class="img-container"
+      />
+      <div class="product-details">
+        <h2 class="product-title">{{ product.productName }}</h2>
+        <p class="product-description">{{ product.productDescription }}</p>
+        <p class="product-price">{{ product.productPrice }}</p>
+        <button class="add-to-cart-button" onclick="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+      <div class="additional-info">
+        <p>Reviews: {{ product.productReviews }}</p>
+        <p>Tags: {{ product.productTags }}</p>
+        <p>Categories: {{ product.productCategories }}</p>
+        <p>Use Cases: {{ product.productUseCases }}</p>
+      </div>
+    </div>
+  </div>
+</div>
