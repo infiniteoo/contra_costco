@@ -52,4 +52,16 @@ export class CartSidebarComponent {
   removeItem(itemToRemove: any) {
     this.cartService.removeItemFromCart(itemToRemove);
   }
+
+  totalPriceForCart() {
+    // calculate total price of all the items in shopping cart
+    const cartItems = this.cartService.getItemsInCart();
+    let totalPrice = 0;
+    for (const item of cartItems) {
+      // remove $ dollar sign from item.productPrice
+      item.productPrice = item.productPrice.replace('$', '');
+      totalPrice += parseFloat(item.productPrice);
+    }
+    return totalPrice;
+  }
 }
