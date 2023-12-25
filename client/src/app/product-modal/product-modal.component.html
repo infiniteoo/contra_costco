@@ -3,9 +3,9 @@
     <button class="close-button" (click)="closeModal()">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        fill="currentColor"
+        width="30"
+        height="30"
+        fill="#ff5722"
         class="bi bi-x"
         viewBox="0 0 16 16"
       >
@@ -19,8 +19,16 @@
         <img
           src="{{ product.productImageURL }}"
           alt="Product Image"
-          class="img-container"
+          class="img-container cursor-pointer"
+          (click)="openImageModal()"
         />
+        <div class="" *ngIf="isImageModalOpen">
+          <app-image-modal
+            [imageToShow]="product.productImageURL"
+            [isImageModalOpen]="isImageModalOpen"
+            [closeImageModal]="closeImageModal.bind(this)"
+          ></app-image-modal>
+        </div>
         <div class="product-details">
           <h2 class="product-title">{{ product.productName }}</h2>
           <p class="product-description">{{ product.productDescription }}</p>
