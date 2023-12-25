@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductRatingComponent } from '../product-rating/product-rating.component';
 import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
 import { ImageModalComponent } from '../image-modal/image-modal.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-modal',
@@ -18,7 +19,8 @@ import { ImageModalComponent } from '../image-modal/image-modal.component';
   styleUrl: './product-modal.component.css',
 })
 export class ProductModalComponent {
-  constructor() {}
+  constructor(private cartService: CartService) {}
+
   @Input() product: any = null;
   @Input() isModalOpen: boolean = false;
   @Output() isImageModalOpen: boolean = false;
@@ -41,5 +43,9 @@ export class ProductModalComponent {
     this.isImageModalOpen = true;
     this.isImageModalOpenChange.emit(this.isImageModalOpen); // Emit the value to control the image modal
     console.log('openImageModal', this.isImageModalOpen);
+  }
+
+  addItemToCart(product: any) {
+    this.cartService.addItemToCart(product);
   }
 }

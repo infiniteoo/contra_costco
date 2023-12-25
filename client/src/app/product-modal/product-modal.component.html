@@ -38,7 +38,7 @@
               <app-product-rating [rating]="rating"></app-product-rating>
             </div>
           </div>
-          <button class="add-to-cart-button" onclick="addToCart(product)">
+          <button class="add-to-cart-button" (click)="addItemToCart(product)">
             Add to Cart
           </button>
         </div>
