@@ -1,0 +1,15 @@
+<div class="flex flex-row justify-center" *ngIf="reviews">
+  <div class="review" *ngFor="let review of fakeReviews">
+    <div class="profile flex flex-row items-center">
+      <img
+        src="{{ review.profilePicture }}"
+        alt="Profile Picture"
+        class="profile-picture"
+      />
+      <div class="flex flex-col ml-2">
+        <p class="profile-name">{{ review.profileName }}</p>
+        <p class="comment">-"{{ review.comment }}"</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,7 +37,9 @@
       </div>
 
       <div class="additional-info">
-        <p>Reviews: {{ product.productReviews }}</p>
+        <div class="flex flex-row justify-center items-center">
+          <app-product-reviews [reviews]="reviews"></app-product-reviews>
+        </div>
         <p>Tags: {{ product.productTags }}</p>
         <p>Categories: {{ product.productCategories }}</p>
         <p>Use Cases: {{ product.productUseCases }}</p>

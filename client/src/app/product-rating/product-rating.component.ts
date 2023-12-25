@@ -16,7 +16,6 @@ export class ProductRatingComponent {
 
   // convert rating to number
   getRating(): number {
-    console.log('rating: ', this.rating);
     return parseFloat(this.rating);
   }
 

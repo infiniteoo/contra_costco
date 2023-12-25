@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CartService } from '../cart.service';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { ProductRatingComponent } from '../product-rating/product-rating.component';
+import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
 
 @Component({
   selector: 'app-product-display',
@@ -15,6 +16,7 @@ import { ProductRatingComponent } from '../product-rating/product-rating.compone
     MatIconModule,
     ProductModalComponent,
     ProductRatingComponent,
+    ProductReviewsComponent,
   ],
   templateUrl: './product-display.component.html',
   styleUrls: ['./product-display.component.css'],
@@ -23,6 +25,7 @@ export class ProductDisplayComponent implements OnInit {
   @Input() products: any;
   @Output() isModalOpen: boolean = false;
   @Output() rating: string = '';
+  @Output() reviews: [] = [];
   selectedProduct: any; // Track the selected product
 
   constructor(private cartService: CartService) {}
