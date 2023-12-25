@@ -21,6 +21,9 @@ namespace ContraCostco
         [DynamoDBProperty("product_categories")]
         public List<string> ProductCategories { get; set; }
 
+        [DynamoDBProperty("product_rating")]
+        public string ProductRating { get; set; }
+
         [DynamoDBProperty("product_features")]
         public List<string> ProductFeatures { get; set; }
 
@@ -39,6 +42,7 @@ namespace ContraCostco
             ProductDescription = string.Empty;
             ProductImageURL = string.Empty;
             ProductPrice = string.Empty;
+            ProductRating = string.Empty;
             ProductCategories = new List<string>();
             ProductFeatures = new List<string>();
             ProductReviews = new List<string>();
