@@ -4,17 +4,25 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CartService } from '../cart.service';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
+import { ProductRatingComponent } from '../product-rating/product-rating.component';
 
 @Component({
   selector: 'app-product-display',
   standalone: true,
-  imports: [MatCardModule, CommonModule, MatIconModule, ProductModalComponent],
+  imports: [
+    MatCardModule,
+    CommonModule,
+    MatIconModule,
+    ProductModalComponent,
+    ProductRatingComponent,
+  ],
   templateUrl: './product-display.component.html',
   styleUrls: ['./product-display.component.css'],
 })
 export class ProductDisplayComponent implements OnInit {
   @Input() products: any;
   @Output() isModalOpen: boolean = false;
+  @Output() rating: string = '';
   selectedProduct: any; // Track the selected product
 
   constructor(private cartService: CartService) {}

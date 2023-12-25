@@ -104,3 +104,11 @@
     color: #333;
     text-align: left;
 }
+
+.rating {
+    margin-left: 20px;
+}
+
+.price-rating {
+    justify-content: space-evenly;
+}

@@ -20,8 +20,12 @@
         </mat-card-header>
         <mat-card-content>
           <p class="product-price">{{ product.productPrice }}</p>
+          <div class="flex flex-col justify-center items-center text-center">
+            <app-product-rating
+              [rating]="product.productRating"
+            ></app-product-rating>
+          </div>
           <p class="product-tags">
-            Tags:
             <span *ngFor="let tag of product.productTags" class="tag-pill">
               {{ tag }}
             </span>
@@ -48,5 +52,6 @@
     [product]="selectedProduct"
     [isModalOpen]="isModalOpen"
     (isModalOpenChange)="isModalOpen = $event"
+    [rating]="selectedProduct.productRating"
   ></app-product-modal>
 </div>
