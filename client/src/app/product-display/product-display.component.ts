@@ -48,4 +48,8 @@ export class ProductDisplayComponent implements OnInit {
     console.log('openModal() called, value: ', this.isModalOpen);
     this.isModalOpen = true;
   }
+
+  preventModalOpen(event: Event): void {
+    event.stopPropagation();
+  }
 }

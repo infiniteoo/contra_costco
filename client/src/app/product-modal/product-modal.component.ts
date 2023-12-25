@@ -1,12 +1,13 @@
 import { Component, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ProductRatingComponent } from '../product-rating/product-rating.component';
 import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
 
 @Component({
   selector: 'app-product-modal',
   standalone: true,
-  imports: [ProductRatingComponent, ProductReviewsComponent],
+  imports: [ProductRatingComponent, ProductReviewsComponent, CommonModule],
   templateUrl: './product-modal.component.html',
   styleUrl: './product-modal.component.css',
 })

@@ -29,7 +29,7 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 40px;
     color: #333;
 }
 
@@ -77,7 +77,7 @@
 .product-price {
     font-size: 40px;
     font-weight: bold;
-    color: #2ecc71;
+    color: #ff5722;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -91,6 +91,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+
 }
 
 .add-to-cart-button:hover {
@@ -111,4 +112,66 @@
 
 .price-rating {
     justify-content: space-evenly;
+}
+
+/* Inside your product-modal.component.css */
+.tags-categories {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.tags,
+.categories,
+.use-cases {
+    margin-right: 20px;
+}
+
+.tag-pill,
+.category-pill,
+.use-case-pill {
+    display: inline-block;
+    padding: 4px 10px;
+    margin: 4px;
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: default;
+    transition: background-color 0.3s;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+
+.tag-pill:hover,
+.category-pill:hover,
+.use-case-pill:hover {
+    background-color: #27ae60;
+}
+
+.use-cases {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+
+    justify-content: center;
+}
+
+.use-case-pill {
+    max-width: 100%;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    padding: 4px 10px;
+    margin-left: 10px;
+    justify-content: space-evenly;
+}
+
+.use-case-pill:hover {
+
+    transform: scale(1.07);
+    transition: transform 0.3s;
+    background-color: transparent;
 }

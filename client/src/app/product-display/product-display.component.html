@@ -35,7 +35,7 @@
           <button
             mat-icon-button
             class="text-orange-500"
-            (click)="addItemToCart(product)"
+            (click)="addItemToCart(product); preventModalOpen($event)"
           >
             <mat-icon class="cart-icon hover:scale-125 transition"
               >add_shopping_cart</mat-icon

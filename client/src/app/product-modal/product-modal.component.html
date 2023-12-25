@@ -40,9 +40,36 @@
         <div class="flex flex-row justify-center items-center">
           <app-product-reviews [reviews]="reviews"></app-product-reviews>
         </div>
-        <p>Tags: {{ product.productTags }}</p>
-        <p>Categories: {{ product.productCategories }}</p>
-        <p>Use Cases: {{ product.productUseCases }}</p>
+        <div class="tags-categories justify-center">
+          <div class="tags">
+            <p>Tags:</p>
+            <div *ngFor="let tag of product.productTags" class="tag-pill">
+              {{ tag }}
+            </div>
+          </div>
+          <div class="categories">
+            <p>Categories:</p>
+            <div
+              *ngFor="let category of product.productCategories"
+              class="category-pill"
+            >
+              {{ category }}
+            </div>
+          </div>
+        </div>
+        <div class="justify-center items-center">
+          <div class="use-cases">
+            <p class="text-left">Use Cases:</p>
+            <div class="flex flex-row">
+              <div
+                *ngFor="let useCase of product.productUseCases"
+                class="use-case-pill"
+              >
+                {{ useCase }}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
