@@ -1,3 +1,5 @@
+<!-- toolbar.component.html -->
+
 <mat-toolbar class="mat-toolbar">
   <div class="img-container">
     <img
@@ -15,10 +17,7 @@
 
   <div class="flex flex-grow justify-center items-center">
     <!-- Added flex-grow -->
-    <app-search-bar
-      class="center-search items-center justify-center"
-      (search)="performSearch($event)"
-    ></app-search-bar>
+    <app-search-bar (filterChange)="onFilterChange($event)"></app-search-bar>
   </div>
   <div class="flex justify-end flex-row">
     <div class="account-button w-1/2 mr-3">

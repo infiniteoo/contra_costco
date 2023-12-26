@@ -2,3 +2,4 @@ venv
 *env
 server/bin
 server/obj
+node_modules

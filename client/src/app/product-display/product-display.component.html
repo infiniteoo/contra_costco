@@ -1,50 +1,107 @@
+<!-- product-display.component.html -->
+
 <div class="product-grid">
-  <div
-    class="custom-card"
-    *ngFor="let product of products"
-    (click)="openModal(product)"
-  >
-    <mat-card class="product-card cursor-pointer border-green-500">
-      <div class="product-image">
-        <img
-          mat-card-image
-          [src]="product.productImageURL"
-          alt="Product image"
-        />
-      </div>
-      <div class="product-details">
-        <mat-card-header>
-          <mat-card-title class="product-title text-center">
-            {{ product.productName }}
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="product-price">{{ product.productPrice }}</p>
-          <div class="flex flex-col justify-center items-center text-center">
-            <app-product-rating
-              [rating]="product.productRating"
-            ></app-product-rating>
-          </div>
-          <p class="product-tags">
-            <span *ngFor="let tag of product.productTags" class="tag-pill">
-              {{ tag }}
-            </span>
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button
-            mat-icon-button
-            class="text-orange-500"
-            (click)="addItemToCart(product); preventModalOpen($event)"
-          >
-            <mat-icon class="cart-icon hover:scale-125 transition"
-              >add_shopping_cart</mat-icon
+  <div *ngIf="filteredProducts.length > 0; else noFilteredProducts">
+    <!-- Display filteredProducts -->
+    <div
+      class="custom-card"
+      *ngFor="let product of filteredProducts"
+      (click)="openModal(product)"
+    >
+      <!-- Your product display logic for filteredProducts -->
+      <mat-card class="product-card cursor-pointer border-green-500">
+        <div class="product-image">
+          <img
+            mat-card-image
+            [src]="product.productImageURL"
+            alt="Product image"
+          />
+        </div>
+        <div class="product-details">
+          <mat-card-header>
+            <mat-card-title class="product-title text-center">
+              {{ product.productName }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="product-price">{{ product.productPrice }}</p>
+            <div class="flex flex-col justify-center items-center text-center">
+              <app-product-rating
+                [rating]="product.productRating"
+              ></app-product-rating>
+            </div>
+            <p class="product-tags">
+              <span *ngFor="let tag of product.productTags" class="tag-pill">
+                {{ tag }}
+              </span>
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-icon-button
+              class="text-orange-500"
+              (click)="addItemToCart(product); preventModalOpen($event)"
             >
-          </button>
-        </mat-card-actions>
-      </div>
-    </mat-card>
+              <mat-icon class="cart-icon hover:scale-125 transition"
+                >add_shopping_cart</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
   </div>
+
+  <ng-template #noFilteredProducts>
+    <!-- Display products if filteredProducts is empty -->
+    <div
+      class="custom-card"
+      *ngFor="let product of products"
+      (click)="openModal(product)"
+    >
+      <!-- Your product display logic for products -->
+      <mat-card class="product-card cursor-pointer border-green-500">
+        <div class="product-image">
+          <img
+            mat-card-image
+            [src]="product.productImageURL"
+            alt="Product image"
+          />
+        </div>
+        <div class="product-details">
+          <mat-card-header>
+            <mat-card-title class="product-title text-center">
+              {{ product.productName }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="product-price">{{ product.productPrice }}</p>
+            <div class="flex flex-col justify-center items-center text-center">
+              <app-product-rating
+                [rating]="product.productRating"
+              ></app-product-rating>
+            </div>
+            <p class="product-tags">
+              <span *ngFor="let tag of product.productTags" class="tag-pill">
+                {{ tag }}
+              </span>
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-icon-button
+              class="text-orange-500"
+              (click)="addItemToCart(product); preventModalOpen($event)"
+            >
+              <mat-icon class="cart-icon hover:scale-125 transition"
+                >add_shopping_cart</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </ng-template>
 </div>
 
 <div class="" *ngIf="isModalOpen">

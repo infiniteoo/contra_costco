@@ -1,9 +1,19 @@
+<!-- search-bar.component.html -->
+
 <mat-form-field class="search-bar">
   <input
     matInput
-    placeholder="Search"
-    [(ngModel)]="searchQuery"
-    (ngModelChange)="onSearchChange()"
+    type="text"
+    placeholder="Search for products..."
+    [(ngModel)]="filter"
+    (ngModelChange)="onFilterChange(filter)"
   />
   <mat-icon matSuffix>search</mat-icon>
 </mat-form-field>
+
+<!-- Display autocomplete suggestions -->
+<div *ngIf="searchResults.length > 0" class="autocomplete-suggestions">
+  <div *ngFor="let result of searchResults" (click)="selectResult(result)">
+    {{ result.productName }}
+  </div>
+</div>

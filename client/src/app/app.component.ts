@@ -1,4 +1,12 @@
-import { Component, Output, Input } from '@angular/core';
+// app.component.ts
+
+import {
+  Component,
+  Output,
+  Input,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -28,22 +36,35 @@ import { CartService } from './cart.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnChanges {
   title = 'client';
   @Input() isCartOpen: boolean = false;
-  @Output() products: any;
+  @Output() products: any[] = [];
+  filteredProducts: any[] = [];
 
   isButtonActive: boolean = false;
 
   toggleCart() {
     this.isCartOpen = !this.isCartOpen;
-    console.log('isCartOpen? in app.comp', this.isCartOpen);
     this.isButtonActive = !this.isButtonActive;
   }
 
   closeCart() {
-    this.isCartOpen = false; // Close the sidebar
+    this.isCartOpen = false;
     this.isButtonActive = false;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes['filteredProducts'] &&
+      changes['filteredProducts'].currentValue
+    ) {
+      console.log(
+        'filteredProducts changed:',
+        changes['filteredProducts'].currentValue
+      );
+      this.filteredProducts = changes['filteredProducts'].currentValue;
+    }
   }
 
   constructor(private http: HttpClient, private cartService: CartService) {}
@@ -53,10 +74,11 @@ export class AppComponent {
   }
   ngOnInit() {
     // query the server for the products
-    this.http.get('http://localhost:5000/api/products').subscribe((data) => {
-      console.log(data);
-      this.products = data;
-    });
+    this.http
+      .get('http://localhost:5000/api/products')
+      .subscribe((data: any) => {
+        this.products = data;
+      });
 
     // Check local storage for cart
     const cartData = localStorage.getItem('cart');
@@ -69,5 +91,10 @@ export class AppComponent {
 
   totalItemsInCart() {
     return this.cartService.totalItemsInCart;
+  }
+
+  onFilteredProductsChange(filteredProducts: any[]): void {
+    this.filteredProducts = filteredProducts;
+    console.log('Filtered products updated:', this.filteredProducts);
   }
 }

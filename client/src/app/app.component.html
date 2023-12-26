@@ -1,8 +1,16 @@
-<app-toolbar></app-toolbar>
+<!-- app.component.html -->
+
+<app-toolbar
+  [products]="products"
+  (filteredProductsChange)="onFilteredProductsChange($event)"
+></app-toolbar>
 
 <div class="content-container">
   <app-sidebar></app-sidebar>
-  <app-product-display [products]="products"></app-product-display>
+  <app-product-display
+    [products]="products"
+    [filteredProducts]="filteredProducts"
+  ></app-product-display>
   <button class="cart-icon" (click)="toggleCart()" *ngIf="!isCartOpen">
     <mat-icon>shopping_cart</mat-icon>
   </button>
