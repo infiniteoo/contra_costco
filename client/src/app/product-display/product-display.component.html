@@ -1,7 +1,13 @@
 <!-- product-display.component.html -->
 
-<div class="product-grid">
-  <div *ngIf="filteredProducts.length > 0; else noFilteredProducts">
+<div
+  [ngClass]="{ 'product-grid': filteredProducts.length == 0 }"
+  class="product-grid"
+>
+  <div
+    *ngIf="filteredProducts.length > 0; else noFilteredProducts"
+    class="product-grid"
+  >
     <!-- Display filteredProducts -->
     <div
       class="custom-card"
@@ -59,7 +65,6 @@
       *ngFor="let product of products"
       (click)="openModal(product)"
     >
-      <!-- Your product display logic for products -->
       <mat-card class="product-card cursor-pointer border-green-500">
         <div class="product-image">
           <img

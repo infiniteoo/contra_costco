@@ -1,12 +1,15 @@
 /* Updated CSS for Product Cards */
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-items: center;
-    padding: 20px;
-    background-color: #f2f2f2;
-    background-image: url("../../assets/yellow-bg.svg");
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    justify-items: center !important;
+    padding: 20px !important;
+    background-color: #d2cbcb !important;
+    background-image: url("../../assets/yellow-bg.svg") !important;
+    background-size: contain !important;
+
+
 }
 
 .product-card {
