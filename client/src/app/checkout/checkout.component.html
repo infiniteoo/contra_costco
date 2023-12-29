@@ -1,37 +1,98 @@
-<form (ngSubmit)="submitOrder()" #checkoutForm="ngForm">
-  <!-- Billing Information -->
-  <h2>Billing Information</h2>
-  <div>
-    <label for="billingName">Name:</label>
-    <input
-      type="text"
-      id="billingName"
-      name="billingName"
-      [(ngModel)]="billingName"
-      required
-    />
+<div class="modal-container">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">&#10006;</button>
+
+    <form (ngSubmit)="submitOrder()" #checkoutForm="ngForm">
+      <!-- Billing Information -->
+      <h2>Billing Information</h2>
+      <div class="form-group">
+        <label for="billingName">Name:</label>
+        <input
+          type="text"
+          id="billingName"
+          name="billingName"
+          [(ngModel)]="billingName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="billingAddress">Address:</label>
+        <input
+          type="text"
+          id="billingAddress"
+          name="billingAddress"
+          [(ngModel)]="billingAddress"
+          required
+        />
+      </div>
+      <!-- Other billing fields (e.g., billing city, state, zip code) -->
+
+      <!-- Shipping Information -->
+      <h2>Shipping Information</h2>
+      <div class="form-group">
+        <label for="shippingName">Name:</label>
+        <input
+          type="text"
+          id="shippingName"
+          name="shippingName"
+          [(ngModel)]="shippingName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="shippingAddress">Address:</label>
+        <input
+          type="text"
+          id="shippingAddress"
+          name="shippingAddress"
+          [(ngModel)]="shippingAddress"
+          required
+        />
+      </div>
+      <!-- Other shipping fields (e.g., shipping city, state, zip code) -->
+
+      <!-- Payment Information -->
+      <h2>Payment Information</h2>
+      <div class="form-group">
+        <label for="cardNumber">Credit Card Number:</label>
+        <input
+          type="text"
+          id="cardNumber"
+          name="cardNumber"
+          [(ngModel)]="cardNumber"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration Date:</label>
+        <input
+          type="text"
+          id="expirationDate"
+          name="expirationDate"
+          [(ngModel)]="expirationDate"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="checkbox"
+          id="sameShippingBilling"
+          name="sameShippingBilling"
+          [(ngModel)]="sameShippingBilling"
+        />
+        <label for="sameShippingBilling"
+          >Same shipping and billing address</label
+        >
+      </div>
+      <!-- Other payment fields (e.g., CVV, cardholder name) -->
+
+      <!-- Review Order -->
+      <h2>Order Summary</h2>
+      <!-- Display the user's order details here... -->
+
+      <button type="submit" [disabled]="checkoutForm.invalid">
+        Complete Purchase
+      </button>
+    </form>
   </div>
-  <!-- Other billing fields... -->
-
-  <!-- Shipping Information -->
-  <h2>Shipping Information</h2>
-  <div>
-    <label for="shippingName">Name:</label>
-    <input
-      type="text"
-      id="shippingName"
-      name="shippingName"
-      [(ngModel)]="shippingName"
-      required
-    />
-  </div>
-  <!-- Other shipping fields... -->
-
-  <!-- Review Order -->
-  <h2>Order Summary</h2>
-  <!-- Display the user's order details here... -->
-
-  <button type="submit" [disabled]="checkoutForm.invalid">
-    Complete Purchase
-  </button>
-</form>
+</div>

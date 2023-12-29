@@ -212,7 +212,7 @@ button {
 
 .cart-item:hover {
     background-color: #f2f2f2;
-    transform: scale(1.05);
+    transform: scale(1.01);
     transition: 0.5s;
 
 
