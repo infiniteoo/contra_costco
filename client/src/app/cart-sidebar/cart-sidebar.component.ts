@@ -2,17 +2,21 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../cart.service';
 import { CartItemComponent } from '../cart-item/cart-item.component';
+import { CheckoutModalComponent } from '../checkout/checkout.component';
 @Component({
   selector: 'app-cart-sidebar',
   standalone: true,
-  imports: [CommonModule, CartItemComponent],
+  imports: [CommonModule, CartItemComponent, CheckoutModalComponent],
   templateUrl: './cart-sidebar.component.html',
   styleUrl: './cart-sidebar.component.css',
 })
 export class CartSidebarComponent {
   @Input() isCartOpen: boolean = false;
   cartItems: any = [];
-  @Output() closeCartEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output() closeCartEvent: EventEmitter<void> = new EventEmitter<void>(); // Rename this property
+
+  isCheckoutModalOpen: boolean = false;
 
   constructor(private cartService: CartService) {}
 
@@ -27,6 +31,12 @@ export class CartSidebarComponent {
 
   toggleCart() {
     this.closeCartEvent.emit(); // Emit the event
+  }
+
+  showCheckoutModal() {
+    // Show the checkout modal
+    this.isCartOpen = false;
+    this.isCheckoutModalOpen = true;
   }
 
   getItemsInCartWithQuantity() {

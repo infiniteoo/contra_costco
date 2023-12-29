@@ -31,5 +31,11 @@
     </div>
   </div>
   <div class="total-price">Total: ${{ totalPriceForCart() }}</div>
-  <button style="font-size: 24px">Check Out</button>
+  <button style="font-size: 24px" (click)="showCheckoutModal()">
+    Check Out
+  </button>
+  <app-checkout
+    *ngIf="isCheckoutModalOpen"
+    (closeCheckoutModal)="closeCartEvent.emit()"
+  ></app-checkout>
 </div>
