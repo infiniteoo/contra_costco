@@ -1,5 +1,31 @@
 <div class="text-white p-4 sidebar">
-  <p class="headers">Tags</p>
+  <!-- Customer Review Section -->
+  <div class="customer-review-section">
+    <p class="headers">Customer Review</p>
+    <ul style="font-size: 24px">
+      <li (click)="filterByRating(4)">
+        <span class="star-rating">★★★★</span> & Up
+      </li>
+      <li (click)="filterByRating(3)">
+        <span class="star-rating">★★★☆</span> & Up
+      </li>
+      <li (click)="filterByRating(2)">
+        <span class="star-rating">★★☆☆</span> & Up
+      </li>
+      <li (click)="filterByRating(1)">
+        <span class="star-rating">★☆☆☆</span> & Up
+      </li>
+    </ul>
+  </div>
+
+  <div class="price-slider-section">
+    <p class="headers" style="margin-top: 20px">Price Range</p>
+    <input type="range" [(ngModel)]="minPrice" min="0" [max]="maxPrice" />
+    <input type="range" [(ngModel)]="maxPrice" min="0" [max]="maxPrice" />
+    <div class="price-range">{{ minPrice }} - {{ maxPrice }}</div>
+  </div>
+
+  <p class="headers" style="margin-top: 20px">Tags</p>
   <div *ngFor="let product of products">
     <ul class="flex flex-wrap -mx-2">
       <li
