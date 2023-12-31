@@ -4,7 +4,8 @@
 
     <form (ngSubmit)="submitOrder()" #checkoutForm="ngForm">
       <!-- Billing Information -->
-      <h2>Billing Information</h2>
+      <h2>Billing</h2>
+      <div class="divider"></div>
       <div class="form-row">
         <div class="form-group">
           <label for="billingFirstName">First Name:</label>
@@ -26,8 +27,6 @@
             required
           />
         </div>
-      </div>
-      <div class="form-row">
         <div class="form-group">
           <label for="billingAddress">Address:</label>
           <input
@@ -38,6 +37,8 @@
             required
           />
         </div>
+      </div>
+      <div class="form-row">
         <div class="form-group">
           <label for="billingCity">City:</label>
           <input
@@ -79,11 +80,14 @@
             (change)="combineShippingAndBilling()"
             class="justify-left items-left"
           />
-          <p>Same shipping and billing address</p>
+          <label for="sameShippingBilling"
+            >Same shipping and billing address</label
+          >
         </div>
       </div>
       <!-- Shipping Information -->
-      <h2>Shipping Information</h2>
+      <h2>Shipping</h2>
+      <div class="divider"></div>
       <div class="form-row">
         <div class="form-group">
           <label for="shippingFirstName">First Name:</label>
@@ -107,8 +111,6 @@
             required
           />
         </div>
-      </div>
-      <div class="form-row">
         <div class="form-group">
           <label for="shippingAddress">Address:</label>
           <input
@@ -120,6 +122,8 @@
             required
           />
         </div>
+      </div>
+      <div class="form-row">
         <div class="form-group">
           <label for="shippingCity">City:</label>
           <input
@@ -156,7 +160,8 @@
       </div>
 
       <!-- Payment Information -->
-      <h2>Payment Information</h2>
+      <h2>Payment</h2>
+      <div class="divider"></div>
       <div class="form-row">
         <div class="form-group">
           <label for="cardNumber">Credit Card Number:</label>
@@ -178,11 +183,11 @@
             required
           />
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="cvv">CVV:</label>
-          <input type="text" id="cvv" name="cvv" [(ngModel)]="cvv" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" [(ngModel)]="cvv" required />
+          </div>
         </div>
       </div>
 

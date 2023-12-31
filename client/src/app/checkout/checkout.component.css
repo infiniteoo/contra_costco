@@ -44,14 +44,13 @@
 }
 
 .form-group {
-    flex: 1;
-    margin-right: 15px;
+    width: 25%;
+    /* Adjust the width as needed */
+    margin-right: 2%;
+    /* Add some spacing between form groups */
 }
 
-/* Styling for labels */
-label {
-    font-weight: bold;
-}
+
 
 /* Styling for inputs */
 input[type="text"],
@@ -65,10 +64,17 @@ input[type="checkbox"] {
 /* Styling for the Grand Total */
 h2 {
     font-size: 24px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+
     font-weight: bold;
-    text-align: center;
+    text-align: left;
+
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #FF5733, #FFBD33, #33FF57, #33D0FF);
+    margin-bottom: 15px;
 }
 
 /* Styling for the Complete Purchase button */
@@ -99,7 +105,7 @@ button[type="submit"]:disabled {
     /* Add space between the checkbox and label */
 }
 
-.checkbox-container p {
+.checkbox-container label {
     margin: 0;
     white-space: nowrap;
     /* Remove any default margin for the label */

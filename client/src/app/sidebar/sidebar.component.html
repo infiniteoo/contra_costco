@@ -1,14 +1,15 @@
 <div class="text-white p-4 sidebar">
-  <!-- Sidebar content goes here -->
-  <ul class="space-y-2">
-    <li class="hover:bg-gray-600 p-2 rounded">
-      <a href="#">Link 1</a>
-    </li>
-    <li class="hover:bg-gray-600 p-2 rounded">
-      <a href="#">Link 2</a>
-    </li>
-    <li class="hover:bg-gray-600 p-2 rounded">
-      <a href="#">Link 3</a>
-    </li>
-  </ul>
+  <p class="headers">Tags</p>
+  <div *ngFor="let product of products">
+    <ul class="flex flex-wrap -mx-2">
+      <li
+        class="px-2 w-1/2"
+        *ngFor="let tag of removeDuplicates(product.productTags).slice(0, 2)"
+      >
+        <a href="#" class="hover:bg-gray-600 rounded block text-truncate">{{
+          tag
+        }}</a>
+      </li>
+    </ul>
+  </div>
 </div>
