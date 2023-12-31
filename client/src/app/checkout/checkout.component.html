@@ -5,91 +5,194 @@
     <form (ngSubmit)="submitOrder()" #checkoutForm="ngForm">
       <!-- Billing Information -->
       <h2>Billing Information</h2>
-      <div class="form-group">
-        <label for="billingName">Name:</label>
-        <input
-          type="text"
-          id="billingName"
-          name="billingName"
-          [(ngModel)]="billingName"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="billingFirstName">First Name:</label>
+          <input
+            type="text"
+            id="billingFirstName"
+            name="billingFirstName"
+            [(ngModel)]="billingFirstName"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="billingLastName">Last Name:</label>
+          <input
+            type="text"
+            id="billingLastName"
+            name="billingLastName"
+            [(ngModel)]="billingLastName"
+            required
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="billingAddress">Address:</label>
-        <input
-          type="text"
-          id="billingAddress"
-          name="billingAddress"
-          [(ngModel)]="billingAddress"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="billingAddress">Address:</label>
+          <input
+            type="text"
+            id="billingAddress"
+            name="billingAddress"
+            [(ngModel)]="billingAddress"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="billingCity">City:</label>
+          <input
+            type="text"
+            id="billingCity"
+            name="billingCity"
+            [(ngModel)]="billingCity"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="billingState">State:</label>
+          <input
+            type="text"
+            id="billingState"
+            name="billingState"
+            [(ngModel)]="billingState"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="billingZip">Zip Code:</label>
+          <input
+            type="text"
+            id="billingZip"
+            name="billingZip"
+            [(ngModel)]="billingZip"
+            required
+          />
+        </div>
       </div>
-      <!-- Other billing fields (e.g., billing city, state, zip code) -->
-
+      <div class="form-row">
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="sameShippingBilling"
+            name="sameShippingBilling"
+            [checked]="sameShippingBilling"
+            (change)="combineShippingAndBilling()"
+            class="justify-left items-left"
+          />
+          <p>Same shipping and billing address</p>
+        </div>
+      </div>
       <!-- Shipping Information -->
       <h2>Shipping Information</h2>
-      <div class="form-group">
-        <label for="shippingName">Name:</label>
-        <input
-          type="text"
-          id="shippingName"
-          name="shippingName"
-          [(ngModel)]="shippingName"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="shippingFirstName">First Name:</label>
+          <input
+            type="text"
+            id="shippingFirstName"
+            name="shippingFirstName"
+            [(ngModel)]="shippingFirstName"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="shippingLastName">Last Name:</label>
+          <input
+            type="text"
+            id="shippingLastName"
+            name="shippingLastName"
+            [(ngModel)]="shippingLastName"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="shippingAddress">Address:</label>
-        <input
-          type="text"
-          id="shippingAddress"
-          name="shippingAddress"
-          [(ngModel)]="shippingAddress"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="shippingAddress">Address:</label>
+          <input
+            type="text"
+            id="shippingAddress"
+            name="shippingAddress"
+            [(ngModel)]="shippingAddress"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="shippingCity">City:</label>
+          <input
+            type="text"
+            id="shippingCity"
+            name="shippingCity"
+            [(ngModel)]="shippingCity"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="shippingState">State:</label>
+          <input
+            type="text"
+            id="shippingState"
+            name="shippingState"
+            [(ngModel)]="shippingState"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="shippingZip">Zip Code:</label>
+          <input
+            type="text"
+            id="shippingZip"
+            name="shippingZip"
+            [(ngModel)]="shippingZip"
+            [disabled]="sameShippingBilling"
+            required
+          />
+        </div>
       </div>
-      <!-- Other shipping fields (e.g., shipping city, state, zip code) -->
 
       <!-- Payment Information -->
       <h2>Payment Information</h2>
-      <div class="form-group">
-        <label for="cardNumber">Credit Card Number:</label>
-        <input
-          type="text"
-          id="cardNumber"
-          name="cardNumber"
-          [(ngModel)]="cardNumber"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cardNumber">Credit Card Number:</label>
+          <input
+            type="text"
+            id="cardNumber"
+            name="cardNumber"
+            [(ngModel)]="cardNumber"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="expirationDate">Expiration Date:</label>
+          <input
+            type="text"
+            id="expirationDate"
+            name="expirationDate"
+            [(ngModel)]="expirationDate"
+            required
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="expirationDate">Expiration Date:</label>
-        <input
-          type="text"
-          id="expirationDate"
-          name="expirationDate"
-          [(ngModel)]="expirationDate"
-          required
-        />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" [(ngModel)]="cvv" required />
+        </div>
       </div>
+
+      <!-- Grand Total -->
+      <h2>Grand Total</h2>
       <div class="form-group">
-        <input
-          type="checkbox"
-          id="sameShippingBilling"
-          name="sameShippingBilling"
-          [(ngModel)]="sameShippingBilling"
-        />
-        <label for="sameShippingBilling"
-          >Same shipping and billing address</label
-        >
+        <p>Total: ${{ calculateGrandTotal() }}</p>
       </div>
-      <!-- Other payment fields (e.g., CVV, cardholder name) -->
 
       <!-- Review Order -->
-      <h2>Order Summary</h2>
-      <!-- Display the user's order details here... -->
-
       <button type="submit" [disabled]="checkoutForm.invalid">
         Complete Purchase
       </button>
