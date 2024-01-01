@@ -59,9 +59,18 @@ export class SidebarComponent {
     this.applyFilters();
   }
 
+  clearTags() {
+    this.selectedTag = null;
+    this.applyFilters();
+  }
+
   filterByTag(tag: string | null) {
-    this.selectedTag = tag;
-    console.log('this.selected tag in filterby tag: ', this.selectedTag);
+    if (this.selectedTag === tag) {
+      this.selectedTag = null;
+    } else {
+      this.selectedTag = tag;
+      console.log('this.selected tag in filterby tag: ', this.selectedTag);
+    }
     this.applyFilters();
   }
 

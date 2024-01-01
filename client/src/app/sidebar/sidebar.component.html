@@ -25,7 +25,9 @@
     <div class="price-range">{{ minPrice }} - {{ maxPrice }}</div>
   </div>
 
-  <p class="headers" style="margin-top: 20px">Tags</p>
+  <p class="headers" style="margin-top: 20px">
+    Tags <span (click)="clearTags()">(clear)</span>
+  </p>
   <div *ngFor="let product of products">
     <ul class="flex flex-wrap -mx-2">
       <li
