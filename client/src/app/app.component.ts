@@ -1,5 +1,4 @@
 // app.component.ts
-
 import {
   Component,
   Output,
@@ -94,6 +93,7 @@ export class AppComponent implements OnChanges {
   }
 
   onFilteredProductsChange(filteredProducts: any[]): void {
+    console.log('Filtered products changed:', filteredProducts);
     this.filteredProducts = filteredProducts;
     console.log('Filtered products updated:', this.filteredProducts);
   }

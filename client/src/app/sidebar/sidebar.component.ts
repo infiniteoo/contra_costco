@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChunkPipe } from '../../../chunk.pipe';
 import { FormsModule } from '@angular/forms';
+import { SearchService } from '../search.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,8 +14,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class SidebarComponent {
   @Input() products: any[] = [];
+  @Output() filteredProductsChange: EventEmitter<any[]> = new EventEmitter<
+    any[]
+  >();
+  selectedRating: number | null = null;
+  selectedTag: string | null = null;
+
   minPrice: number = 0;
-  maxPrice: number = 100; // Replace with your actual maximum price
+  maxPrice: number = 100;
+
+  constructor(private searchService: SearchService) {}
 
   removeDuplicates(productTags: string[]): string[] {
     return Array.from(new Set(productTags));
@@ -35,7 +45,45 @@ export class SidebarComponent {
     // Update minPrice and maxPrice
     this.minPrice = minValue;
     this.maxPrice = maxValue;
+
+    // Filter by price range
+    /*  filteredProducts = filteredProducts.filter((product) => {
+      return product.price >= this.minPrice && product.price <= this.maxPrice;
+    }); */
+
+    this.applyFilters();
   }
 
-  filterByRating(rating: number) {}
+  filterByRating(rating: number | null) {
+    this.selectedRating = rating;
+    this.applyFilters();
+  }
+
+  filterByTag(tag: string | null) {
+    this.selectedTag = tag;
+    console.log('this.selected tag in filterby tag: ', this.selectedTag);
+    this.applyFilters();
+  }
+
+  private applyFilters() {
+    let filteredProducts = this.products;
+
+    // Filter by rating only if a rating is selected
+    if (this.selectedRating !== null) {
+      filteredProducts = filteredProducts.filter((product) => {
+        return product.rating >= (this.selectedRating || 0);
+      });
+    }
+
+    // Filter by selected tag
+    if (this.selectedTag !== null) {
+      filteredProducts = filteredProducts.filter((product) => {
+        return product.productTags.includes(this.selectedTag);
+      });
+    }
+    console.log('filteredProducts in applyFilters(): ', filteredProducts);
+
+    // Emit filtered products to the parent component
+    this.filteredProductsChange.emit(filteredProducts);
+  }
 }

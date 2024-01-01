@@ -31,6 +31,8 @@
       <li
         class="px-2 w-1/2"
         *ngFor="let tag of removeDuplicates(product.productTags).slice(0, 2)"
+        (click)="filterByTag(tag)"
+        [class.selected]="tag === selectedTag"
       >
         <a href="#" class="hover:bg-gray-600 rounded block text-truncate">{{
           tag

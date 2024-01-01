@@ -8,15 +8,25 @@
     margin-bottom: 5px;
 }
 
+.selected {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+
 span {
     font-size: 32px;
     font-weight: bold;
 }
 
+.price-slider-section input[type="range"] {
+    width: 100%;
+    height: 20px;
+}
 
 .customer-review-section {
     cursor: pointer;
-
 }
 
 

@@ -6,7 +6,10 @@
 ></app-toolbar>
 
 <div class="content-container">
-  <app-sidebar [products]="products"></app-sidebar>
+  <app-sidebar
+    [products]="products"
+    (filteredProductsChange)="onFilteredProductsChange($event)"
+  ></app-sidebar>
   <app-product-display
     [products]="products"
     [filteredProducts]="filteredProducts"
