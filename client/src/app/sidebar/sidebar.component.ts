@@ -56,6 +56,7 @@ export class SidebarComponent {
 
   filterByRating(rating: number | null) {
     this.selectedRating = rating;
+    console.log('this.selectedRating in filterByRating: ', this.selectedRating);
     this.applyFilters();
   }
 
@@ -80,8 +81,10 @@ export class SidebarComponent {
     // Filter by rating only if a rating is selected
     if (this.selectedRating !== null) {
       filteredProducts = filteredProducts.filter((product) => {
-        return product.rating >= (this.selectedRating || 0);
+        return product.productRating >= (this.selectedRating || 0);
       });
+
+      console.log('filteredProducts in applyFilters(): ', filteredProducts);
     }
 
     // Filter by selected tag
